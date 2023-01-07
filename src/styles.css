@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #d53369, #cbad6d);
+}
+
+.calculator-grid {
+  justify-content: center;
+  display: grid;
+  margin: 2rem;
+  /* grid-template-columns: auto auto auto auto; */ /* number of columns = number of autos */
+  /* number of columns, width of columns */
+  grid-template-columns: repeat(4, 6rem);
+  /* to determine height of rows
+    1st row (output): min: 7rem, max: auto (based on content)
+    remaining 5 rows with 6rem height */
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgbs(255, 255, 255, 0.75);
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: rgb(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.75rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
+
+/*
+----------CSS Grid Concepts----------
+display: grid;
+display: inline-grid;
+
+gap: row-gap column-gap;
+
+column lines -- | col1 | col2 | col3 | -- 4 column lines (1 to 4)
+grid-column-start: 1;
+grid-column-end: 3;
+
+row lines -- 3 row lines (1 to 3)
+-
+row1
+-
+row2
+-
+grid-row-start: 1;
+grid-row-end: 3;
+*/
